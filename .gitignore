@@ -279,7 +279,6 @@ rolegenie/media/
 .env
 .envs/*
 !.envs/.local/
-audios/*
 
 *.pyc
 templates.py
