@@ -284,3 +284,4 @@ rolegenie/media/
 templates.py
 newrelic.ini
 __pycache__/
+audios/*
