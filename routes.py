@@ -1,3 +1,4 @@
+import os
 import uuid
 import json
 
@@ -29,8 +30,10 @@ async def transcribe(request):
             status_code=400,
             content={"status": 400, "message": "Bad Request", "data": {}},
         )
-
-    file_path = f"{str(ROOT_DIR)}/audios/{str(uuid.uuid4())}.mp3"
+    audio_directory = f"{str(ROOT_DIR)}/audios"
+    if not os.path.exists(audio_directory):
+        os.makedirs(audio_directory)
+    file_path = f"{audio_directory}/{str(uuid.uuid4())}.mp3"
     with open(file_path, "wb") as f:
         f.write(audio.file.read())
 
